@@ -25,6 +25,7 @@ use shared_library;
 use std::error;
 use std::fmt;
 use std::mem;
+use std::ptr;
 use std::ops::Deref;
 use std::os::raw::c_char;
 use std::os::raw::c_void;
@@ -110,7 +111,7 @@ impl<L> FunctionPointers<L> {
     pub fn new(loader: L) -> FunctionPointers<L>
         where L: Loader
     {
-        let entry_points = vk::EntryPoints::load(|name| unsafe { mem::transmute(loader.get_instance_proc_addr(0, name.as_ptr())) });
+        let entry_points = vk::EntryPoints::load(|name| unsafe { mem::transmute(loader.get_instance_proc_addr(ptr::null_mut(), name.as_ptr())) });
 
         FunctionPointers {
             loader,

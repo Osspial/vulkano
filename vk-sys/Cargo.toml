@@ -8,3 +8,7 @@ license = "MIT/Apache-2.0"
 documentation = "https://docs.rs/vk-sys"
 keywords = ["vulkan", "bindings", "graphics", "gpu"]
 categories = ["rendering::graphics-api"]
+
+[build-dependencies]
+vk_generator = {git = "https://github.com/Osspial/vk-rs"}
+vk_api = "1.0"

@@ -258,7 +258,7 @@ impl UnsafeDescriptorPool {
             ($field:ident, $ty:expr) => (
                 if count.$field >= 1 {
                     pool_sizes.push(vk::DescriptorPoolSize {
-                        ty: $ty,
+                        typ: $ty,
                         descriptorCount: count.$field,
                     });
                 }

@@ -491,7 +491,7 @@ impl Device {
             pNext: ptr::null(),
             objectType: ty,
             object: object,
-            name: name.as_ptr(),
+            pObjectName: name.as_ptr(),
         };
         check_errors(self.vk.DebugMarkerSetObjectNameEXT(self.device, &info))?;
         Ok(())

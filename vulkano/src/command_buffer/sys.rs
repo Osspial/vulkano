@@ -182,7 +182,7 @@ pub struct UnsafeCommandBufferBuilder<P> {
 impl<P> fmt::Debug for UnsafeCommandBufferBuilder<P> {
     #[inline]
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "<Vulkan command buffer builder #{}>", self.cmd_raw)
+        write!(f, "<Vulkan command buffer builder at {:?}>", self.cmd_raw)
     }
 }
 

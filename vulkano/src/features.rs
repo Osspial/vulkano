@@ -160,7 +160,7 @@ features!{
     shader_storage_image_array_dynamic_indexing => shaderStorageImageArrayDynamicIndexing,
     shader_clip_distance => shaderClipDistance,
     shader_cull_distance => shaderCullDistance,
-    shader_f3264 => shaderf3264,
+    shader_f3264 => shaderFloat64,
     shader_int64 => shaderInt64,
     shader_int16 => shaderInt16,
     shader_resource_residency => shaderResourceResidency,

@@ -80,9 +80,9 @@ impl DebugCallback {
         // that can't be casted to a `*const c_void`.
         let user_callback = Box::new(Box::new(user_callback) as Box<_>);
 
-        extern "system" fn callback(ty: vk::DebugReportFlagsEXT, _: vk::DebugReportObjectTypeEXT,
+        unsafe extern "system" fn callback(ty: vk::DebugReportFlagsEXT, _: vk::DebugReportObjectTypeEXT,
                                     _: u64, _: usize, _: i32, layer_prefix: *const c_char,
-                                    description: *const c_char, user_data: *mut c_void)
+                                    description: *const c_char, user_data: *mut ())
                                     -> u32 {
             unsafe {
                 let user_callback = user_data as *mut Box<Fn()> as *const _;

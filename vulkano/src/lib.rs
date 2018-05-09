@@ -111,9 +111,35 @@ pub trait VulkanHandle {
     fn value(&self) -> u64;
 }
 
-impl VulkanHandle for usize {
-    #[inline]
-    fn value(&self) -> u64 { *self as u64 }
+impl VulkanHandle for vk::Instance {
+    #[inline(always)]
+    fn value(&self) -> u64 {
+        *self as u64
+    }
+}
+impl VulkanHandle for vk::PhysicalDevice {
+    #[inline(always)]
+    fn value(&self) -> u64 {
+        *self as u64
+    }
+}
+impl VulkanHandle for vk::Device {
+    #[inline(always)]
+    fn value(&self) -> u64 {
+        *self as u64
+    }
+}
+impl VulkanHandle for vk::Queue {
+    #[inline(always)]
+    fn value(&self) -> u64 {
+        *self as u64
+    }
+}
+impl VulkanHandle for vk::CommandBuffer {
+    #[inline(always)]
+    fn value(&self) -> u64 {
+        *self as u64
+    }
 }
 impl VulkanHandle for u64 {
     #[inline]

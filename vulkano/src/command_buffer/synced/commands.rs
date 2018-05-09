@@ -2159,6 +2159,8 @@ impl<'a, P> SyncCommandBufferBuilderExecuteCommands<'a, P> {
 
     #[inline]
     pub unsafe fn submit(self) -> Result<(), SyncCommandBufferBuilderError> {
+        unsafe impl Send for Cmd {}
+        unsafe impl Sync for Cmd {}
         struct Cmd {
             inner: Option<UnsafeCommandBufferBuilderExecuteCommands>,
             command_buffers: Vec<Box<Any + Send + Sync>>,
